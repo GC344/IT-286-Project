@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RollTheBall : MonoBehaviour {
     private Rigidbody hamsterBall;
-    public float force;
+    public float force, maxAngVelocity, boost, topSpeed;
     public int seedMoney;
     
     // Use this for initialization
@@ -12,21 +12,33 @@ public class RollTheBall : MonoBehaviour {
 
 	void Start () {
         hamsterBall = GetComponent<Rigidbody>();
+        hamsterBall.maxAngularVelocity = maxAngVelocity; 
         
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // hamsterBall.velocity = new Vector3(2f, hamsterBall.velocity.y, 2f);
-        playerInput = new Vector3(Input.GetAxisRaw("Horizontal") * 5f, hamsterBall.velocity.y, Input.GetAxisRaw("Vertical")*5f);
+       // playerInput = new Vector3(Input.GetAxisRaw("Horizontal") * 5f, hamsterBall.velocity.y, Input.GetAxisRaw("Vertical")*5f);
         
         //consider changing off of GetAxisRaw to just GetAxis
+        if(hamsterBall.transform.position.y < - 200)
+        {
+            hamsterBall.transform.position = new Vector3(0, 2f, 0);
+            hamsterBall.velocity = new Vector3(0f, 0f, 0f);
+            Debug.Log("Out of bounds, player position reset");
+        }
         
 	}
     private void FixedUpdate()
     {
-        hamsterBall.velocity = playerInput;
-        //add tourqe for more realistic ball rolling
+        if (hamsterBall.velocity.magnitude <= topSpeed)
+        {
+            playerInput = new Vector3(Input.GetAxis("Horizontal") * boost, 0, Input.GetAxisRaw("Vertical") * boost);
+            //hamsterBall.velocity = playerInput;
+            //add tourqe for more realistic ball rolling
+            hamsterBall.AddForce(playerInput);
+        }
     }
     void OnCollisionEnter(Collision collision)
     {//try adddforce
@@ -44,6 +56,7 @@ public class RollTheBall : MonoBehaviour {
         if (collision.gameObject.tag == "KillZone")
         {
             hamsterBall.transform.position = new Vector3(0, 2f, 0);
+            hamsterBall.velocity = new Vector3(0f,0f,0f);
             Debug.Log("Killzone collision, player position reset");
         }
         if (collision.gameObject.tag =="Collectible")
