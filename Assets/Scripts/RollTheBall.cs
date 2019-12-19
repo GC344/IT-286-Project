@@ -5,7 +5,7 @@ using UnityEngine;
 public class RollTheBall : MonoBehaviour {
     private Rigidbody hamsterBall;
     public float force, maxAngVelocity, boost, topSpeed;
-    public int seedMoney;
+    public int seedMoney, resetDepth;
     
     // Use this for initialization
     private Vector3 playerInput;
@@ -22,7 +22,7 @@ public class RollTheBall : MonoBehaviour {
        // playerInput = new Vector3(Input.GetAxisRaw("Horizontal") * 5f, hamsterBall.velocity.y, Input.GetAxisRaw("Vertical")*5f);
         
         //consider changing off of GetAxisRaw to just GetAxis
-        if(hamsterBall.transform.position.y < - 200)
+        if(hamsterBall.transform.position.y < - resetDepth)
         {
             hamsterBall.transform.position = new Vector3(0, 2f, 0);
             hamsterBall.velocity = new Vector3(0f, 0f, 0f);
