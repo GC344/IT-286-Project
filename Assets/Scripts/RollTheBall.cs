@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class RollTheBall : MonoBehaviour {
     private Rigidbody hamsterBall;
-    public float bumpForce, maxAngVelocity, boost, topSpeed;
+    public float bumpForce, maxAngVelocity, boost, topSpeed, currentSpeed;
     public int seedMoney, resetDepth;
     
     // Use this for initialization
     private Vector3 playerInput;
+    public Text currencyText, velocityText,topSpeedText;
 
 	void Start () {
         hamsterBall = GetComponent<Rigidbody>();
@@ -28,6 +29,11 @@ public class RollTheBall : MonoBehaviour {
             hamsterBall.velocity = new Vector3(0f, 0f, 0f);
             Debug.Log("Out of bounds, player position reset");
         }
+
+        currencyText.text = "Seeds: " + seedMoney;
+        topSpeedText.text = "Top Speed: " + topSpeed + "m/s";
+        
+        
         
 	}
     private void FixedUpdate()
@@ -39,7 +45,9 @@ public class RollTheBall : MonoBehaviour {
             //add tourqe for more realistic ball rolling
             hamsterBall.AddForce(playerInput);
         }
-
+        currentSpeed = GetComponent<Rigidbody>().velocity.magnitude;
+        velocityText.text = "Velocity: " + string.Format("{0:0.00}", currentSpeed);
+        //string.Format("{0:0.00}", currentSpeed);
     }
     void OnCollisionEnter(Collision collision)
     {//try adddforce
@@ -70,13 +78,15 @@ public class RollTheBall : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             Debug.Log("Collided with " + collision.gameObject);
+            seedMoney += 1;
            
         }
         if (collision.gameObject.tag == "Drink")
         {
             Destroy(collision.gameObject);
-            Debug.Log("Collided with " + collision.gameObject);
             topSpeed += 0.5f;
+            Debug.Log("Collided with " + collision.gameObject + " Top Speed: " + topSpeed);
+            
 
         }
         if (collision.gameObject.tag == "Platform")
