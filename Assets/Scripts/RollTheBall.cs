@@ -9,6 +9,7 @@ public class RollTheBall : MonoBehaviour {
     public static float topSpeed;
     public static int seedMoney;
     public int  resetDepth;
+    public static Vector3 spawnPoint;
     
     // Use this for initialization
     private Vector3 playerInput;
@@ -19,6 +20,9 @@ public class RollTheBall : MonoBehaviour {
         hamsterBall.maxAngularVelocity = maxAngVelocity;
         topSpeed = 10;
         seedMoney = 0;
+        spawnPoint = new Vector3(0, 2, 0);
+        //level 1: 15,2,0
+        hamsterBall.transform.position = spawnPoint;
         
 	}
 	
@@ -37,10 +41,15 @@ public class RollTheBall : MonoBehaviour {
 
         currencyText.text = "Seeds: " + seedMoney;
         topSpeedText.text = "Top Speed: " + topSpeed + "m/s";
-        
-        
-        
-	}
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            hamsterBall.velocity = Vector3.zero;
+            hamsterBall.angularVelocity = Vector3.zero;
+        }
+
+
+    }
     private void FixedUpdate()
     {
         if (hamsterBall.velocity.magnitude <= topSpeed)
@@ -53,6 +62,7 @@ public class RollTheBall : MonoBehaviour {
         currentSpeed = GetComponent<Rigidbody>().velocity.magnitude;
         velocityText.text = "Velocity: " + string.Format("{0:0.00}", currentSpeed);
         //string.Format("{0:0.00}", currentSpeed);
+
     }
     void OnCollisionEnter(Collision collision)
     {//try adddforce
