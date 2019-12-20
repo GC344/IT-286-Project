@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class RollTheBall : MonoBehaviour {
     private Rigidbody hamsterBall;
-    public float bumpForce, maxAngVelocity, boost, topSpeed, currentSpeed;
-    public int seedMoney, resetDepth;
+    public float bumpForce, maxAngVelocity, boost, currentSpeed;
+    [SerializeField]
+    public static float topSpeed;
+    public static int seedMoney;
+    public int  resetDepth;
     
     // Use this for initialization
     private Vector3 playerInput;
@@ -13,7 +16,9 @@ public class RollTheBall : MonoBehaviour {
 
 	void Start () {
         hamsterBall = GetComponent<Rigidbody>();
-        hamsterBall.maxAngularVelocity = maxAngVelocity; 
+        hamsterBall.maxAngularVelocity = maxAngVelocity;
+        topSpeed = 10;
+        seedMoney = 0;
         
 	}
 	
@@ -81,9 +86,9 @@ public class RollTheBall : MonoBehaviour {
             seedMoney += 1;
            
         }
-        if (collision.gameObject.tag == "Drink")
+        if (gameObject.tag == "Drink")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             topSpeed += 0.5f;
             Debug.Log("Collided with " + collision.gameObject + " Top Speed: " + topSpeed);
             

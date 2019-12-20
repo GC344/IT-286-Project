@@ -313,10 +313,15 @@
     <Compile Include="Assets\Scripts\Blink.cs" />
     <Compile Include="Assets\Scripts\Bump.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\collectDrink.cs" />
+    <Compile Include="Assets\Scripts\collectKey.cs" />
+    <Compile Include="Assets\Scripts\collectPresent.cs" />
+    <Compile Include="Assets\Scripts\collectSeed.cs" />
     <Compile Include="Assets\Scripts\Flicker.cs" />
     <Compile Include="Assets\Scripts\RollTheBall.cs" />
     <Compile Include="Assets\Scripts\RotateCollectibiles.cs" />
     <Compile Include="Assets\Scripts\RotateOnPlate.cs" />
+    <Compile Include="Assets\Scripts\SceneSwapper.cs" />
     <Compile Include="Assets\Scripts\SeedTypes.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\SwitchPress.cs" />
