@@ -8,6 +8,8 @@ TagManager:
   - KillZone
   - Collectible
   - Seed
+  - Platform
+  - SpinPlate
   layers:
   - Default
   - TransparentFX

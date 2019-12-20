@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RollTheBall : MonoBehaviour {
     private Rigidbody hamsterBall;
-    public float force, maxAngVelocity, boost, topSpeed;
+    public float bumpForce, maxAngVelocity, boost, topSpeed;
     public int seedMoney, resetDepth;
     
     // Use this for initialization
@@ -39,6 +39,7 @@ public class RollTheBall : MonoBehaviour {
             //add tourqe for more realistic ball rolling
             hamsterBall.AddForce(playerInput);
         }
+
     }
     void OnCollisionEnter(Collision collision)
     {//try adddforce
@@ -50,7 +51,7 @@ public class RollTheBall : MonoBehaviour {
             // normalize the negative vector
             direction = -direction.normalized;
             //multiply direction and force and add that to the rigidbody 
-            GetComponent<Rigidbody>().AddForce(direction * force);
+            GetComponent<Rigidbody>().AddForce(direction * bumpForce);
             Debug.Log("You have been bumped");
         }
         if (collision.gameObject.tag == "KillZone")
@@ -70,6 +71,48 @@ public class RollTheBall : MonoBehaviour {
             Destroy(collision.gameObject);
             Debug.Log("Collided with " + collision.gameObject);
            
+        }
+        if (collision.gameObject.tag == "Drink")
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("Collided with " + collision.gameObject);
+            topSpeed += 0.5f;
+
+        }
+        if (collision.gameObject.tag == "Platform")
+        {
+           
+            Debug.Log("Entered The " + collision.gameObject);
+            this.transform.parent = collision.transform;
+            
+
+        }
+        if (collision.gameObject.tag == "SpinPlate")
+        {
+
+            Debug.Log("Entered The " + collision.gameObject);
+            this.transform.parent = collision.transform;
+
+
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+
+            Debug.Log("Left The " + collision.gameObject);
+            this.transform.parent = null;
+
+
+        }
+        if (collision.gameObject.tag == "SpinPlate")
+        {
+
+            Debug.Log("Left The " + collision.gameObject);
+            this.transform.parent = null;
+
+
         }
     }
 }
