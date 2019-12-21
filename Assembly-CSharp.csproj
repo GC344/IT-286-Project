@@ -324,7 +324,9 @@
     <Compile Include="Assets\Scripts\SceneSwapper.cs" />
     <Compile Include="Assets\Scripts\SeedTypes.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\StartMenuController.cs" />
     <Compile Include="Assets\Scripts\SwitchPress.cs" />
+    <Compile Include="Assets\Scripts\VictoryMenuController.cs" />
     <None Include="Assets\LeapMotion\Core\Resources\LeapCG.cginc" />
     <None Include="Assets\LeapMotion\Core\README_BEFORE_UPDATING.txt" />
     <None Include="Assets\LeapMotion\Core\readme.txt" />

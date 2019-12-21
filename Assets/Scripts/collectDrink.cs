@@ -9,6 +9,6 @@ public class collectDrink : MonoBehaviour {
     {
         Debug.Log("OnTriggerEnter detected with " + other + " and " + gameObject);
         Destroy(gameObject);
-        RollTheBall.topSpeed += 0.5f;
+        RollTheBall.topSpeed += 1;
     }
 }

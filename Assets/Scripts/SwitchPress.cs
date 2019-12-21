@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SwitchPress : MonoBehaviour {
     public bool isPressed;
-    public Material greenLight;
+    public Material greenLight, transparentMat;
+    public GameObject invisibleWhenSwitched;
 	// Use this for initialization
 	void Start () {
         isPressed = false;
@@ -21,7 +22,8 @@ public class SwitchPress : MonoBehaviour {
             transform.position -= new Vector3(0f, 0.03f, 0f);
             isPressed = true;
             GetComponent<Renderer>().material = greenLight;
-
+            
+            invisibleWhenSwitched.GetComponent<Renderer>().material = transparentMat;
             Debug.Log("Switch Pressed");
         }
     }

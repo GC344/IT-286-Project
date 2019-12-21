@@ -10,17 +10,19 @@ public class RollTheBall : MonoBehaviour {
     public static int seedMoney;
     public int  resetDepth;
     public static Vector3 spawnPoint;
+    public bool touchingFloor;
+
     
-    // Use this for initialization
     private Vector3 playerInput;
     public Text currencyText, velocityText,topSpeedText;
 
 	void Start () {
         hamsterBall = GetComponent<Rigidbody>();
         hamsterBall.maxAngularVelocity = maxAngVelocity;
-        topSpeed = 10;
+        topSpeed = 5;
         seedMoney = 0;
-        spawnPoint = new Vector3(0, 2, 0);
+        spawnPoint = new Vector3(0, 2, 0); 
+        //spawnPoint = new Vector3(15, 2, 0);
         //level 1: 15,2,0
         hamsterBall.transform.position = spawnPoint;
         
@@ -34,7 +36,7 @@ public class RollTheBall : MonoBehaviour {
         //consider changing off of GetAxisRaw to just GetAxis
         if(hamsterBall.transform.position.y < - resetDepth)
         {
-            hamsterBall.transform.position = new Vector3(0, 2f, 0);
+            hamsterBall.transform.position = spawnPoint;
             hamsterBall.velocity = new Vector3(0f, 0f, 0f);
             Debug.Log("Out of bounds, player position reset");
         }
@@ -52,7 +54,7 @@ public class RollTheBall : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        if (hamsterBall.velocity.magnitude <= topSpeed)
+        if ((hamsterBall.velocity.magnitude <= topSpeed) && (touchingFloor == true))
         {
             playerInput = new Vector3(Input.GetAxis("Horizontal") * boost, 0, Input.GetAxisRaw("Vertical") * boost);
             //hamsterBall.velocity = playerInput;
@@ -63,6 +65,10 @@ public class RollTheBall : MonoBehaviour {
         velocityText.text = "Velocity: " + string.Format("{0:0.00}", currentSpeed);
         //string.Format("{0:0.00}", currentSpeed);
 
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        touchingFloor = true;
     }
     void OnCollisionEnter(Collision collision)
     {//try adddforce
@@ -79,7 +85,7 @@ public class RollTheBall : MonoBehaviour {
         }
         if (collision.gameObject.tag == "KillZone")
         {
-            hamsterBall.transform.position = new Vector3(0, 2f, 0);
+            hamsterBall.transform.position = spawnPoint;
             hamsterBall.velocity = new Vector3(0f,0f,0f);
             Debug.Log("Killzone collision, player position reset");
         }
@@ -120,6 +126,11 @@ public class RollTheBall : MonoBehaviour {
 
 
         }
+        if (collision.gameObject)
+        {
+            touchingFloor = true;        
+        }
+        
     }
     void OnCollisionExit(Collision collision)
     {
@@ -138,6 +149,10 @@ public class RollTheBall : MonoBehaviour {
             this.transform.parent = null;
 
 
+        }
+        if (collision.gameObject)
+        {
+            touchingFloor = false;
         }
     }
 }
