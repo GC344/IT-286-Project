@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 613}
   m_MaxSize: {x: 14004, y: 18063}
   vertical: 0
-  controlID: 24039
+  controlID: 27
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 613}
   m_MaxSize: {x: 10002, y: 18063}
   vertical: 1
-  controlID: 24040
+  controlID: 28
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 342}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 0
-  controlID: 24041
+  controlID: 29
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 342}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 24042
+  controlID: 30
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -253,8 +253,8 @@ MonoBehaviour:
     y: 0
     width: 204
     height: 835
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.22716735, y: 0.16271196, z: -0.038527265, w: -0.9593933}
     speed: 2
-    m_Value: {x: -0.22716735, y: 0.16271196, z: -0.038527265, w: -0.9593933}
+    m_Value: {x: -0.22716734, y: 0.16271195, z: -0.03852726, w: -0.95939326}
   m_Size:
     m_Target: 836.2429
     speed: 2
@@ -628,9 +628,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3eaa0100
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 2a91e7ff2c91e7ffc6c6e7ff6e59e8ff9c59e8ff425be8ffeec1ebff5ac5ebff8066edff8466edff8866edffa4b6edff4afaf0ff6215f2fff8a8f3ffd2faffffe2fbffff00000000842300009a2300008e2400009c240000f82400000626000028a60100
+    m_ExpandedIDs: d4a2feffe8a3feff8aa6feff3ca9feff46a9feff50adfeff04b5feff02b6feff78b8feff30bbfeff74bbfeffe2fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -690,20 +690,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/LeapMotion/Core/Plugins/LeapCSharp
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/LeapMotion/Core/Plugins/LeapCSharp
   m_LastFoldersGridSize: 96
   m_LastProjectPath: I:\GitHub\IT-286-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 823}
-    m_SelectedIDs: 521c0000
-    m_LastClickedID: 7250
-    m_ExpandedIDs: 00000000c0110000361400003e150000ac1600008a170000e417000064190000441a0000581a0000841b00004a1c00001e1d0000341d0000301e0000421e0000561f0000dc1f000000ca9a3b
+    scrollPos: {x: 0, y: 303}
+    m_SelectedIDs: d8150000
+    m_LastClickedID: 5592
+    m_ExpandedIDs: 00000000c41100004014000052150000cc160000aa170000041800008a1900006e1a0000821a0000b41b00007c1c0000521d0000681d00006c1e00007e1e0000941f00001a2000001c20000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -731,7 +731,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c0110000361400003e150000ac1600008a170000e417000064190000441a0000581a0000841b00004a1c00001e1d0000341d0000301e0000421e0000561f0000dc1f000000ca9a3b
+    m_ExpandedIDs: 00000000c41100004014000052150000cc160000aa170000041800008a1900006e1a0000821a0000b41b00007c1c0000521d0000681d00006c1e00007e1e0000941f00001c200000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -783,7 +783,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 183}
+    m_ScrollPosition: {x: 0, y: 341.5}
     m_GridSize: 96
   m_DirectoriesAreaWidth: 195
 --- !u!114 &21

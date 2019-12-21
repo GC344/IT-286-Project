@@ -42,6 +42,7 @@ public class VictoryMenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && (exitSelected == true))
         {
             Debug.Log("Exit Application");
+            Application.Quit();
         }
     }
 }

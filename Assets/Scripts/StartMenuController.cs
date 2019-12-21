@@ -39,6 +39,7 @@ public class StartMenuController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Return) && (exitSelected == true))
         {
             Debug.Log("Exit Application");
+            Application.Quit();
         }
     }
 }
